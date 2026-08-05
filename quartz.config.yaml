@@ -1,0 +1,243 @@
+# yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
+configuration:
+  pageTitle: Russell Gallinera
+  pageTitleSuffix: " | russell@site"
+  enableSPA: true
+  enablePopovers: true
+  locale: en-US
+  baseUrl: russellgallinera.com
+  ignorePatterns:
+    - private
+    - templates
+    - .obsidian
+  theme:
+    fontOrigin: local
+    cdnCaching: true
+    typography:
+      title: Lora
+      header: Lora
+      body: PP Neue Montreal
+      code: PP Neue Montreal
+    colors:
+      lightMode:
+        light: "#f7f7f4"
+        lightgray: "#e2e3e5"
+        gray: "#92969c"
+        darkgray: "#323232"
+        dark: "#252627"
+        secondary: "#3f6f9f"
+        tertiary: "#198754"
+        highlight: rgba(63, 111, 159, 0.14)
+        textHighlight: "#ffdf6b88"
+      darkMode:
+        light: "#212224"
+        lightgray: "#282828"
+        gray: "#6b6e72"
+        darkgray: "#f8f8ff"
+        dark: "#ffffff"
+        secondary: "#80aadd"
+        tertiary: "#33d17a"
+        highlight: rgba(128, 170, 221, 0.14)
+        textHighlight: "#ffb30066"
+plugins:
+  - source: "@quartz-community/note-properties"
+    enabled: true
+    options:
+      includeAll: false
+      includedProperties:
+        - description
+        - tags
+        - aliases
+      excludedProperties: []
+      hidePropertiesView: true
+      delimiters: "---"
+      language: yaml
+    order: 5
+  - source: "@quartz-community/created-modified-date"
+    enabled: true
+    options:
+      defaultDateType: modified
+      priority:
+        - frontmatter
+        - filesystem
+    order: 10
+  - source: "@quartz-community/syntax-highlighting"
+    enabled: true
+    options:
+      theme:
+        light: github-light
+        dark: github-dark
+      keepBackground: false
+    order: 20
+  - source: "@quartz-community/obsidian-flavored-markdown"
+    enabled: true
+    options:
+      enableInHtmlEmbed: false
+      enableCheckbox: true
+    order: 30
+  - source: "@quartz-community/github-flavored-markdown"
+    enabled: true
+    order: 40
+  - source: "@quartz-community/table-of-contents"
+    enabled: true
+    order: 50
+    layout:
+      position: right
+      priority: 30
+      condition: not-index
+  - source: "@quartz-community/crawl-links"
+    enabled: true
+    options:
+      markdownLinkResolution: shortest
+    order: 60
+  - source: "@quartz-community/description"
+    enabled: true
+    order: 70
+  - source: "@quartz-community/latex"
+    enabled: true
+    options:
+      renderEngine: katex
+    order: 80
+  - source: "@quartz-community/quartz-fonts"
+    enabled: true
+    options:
+      title: Lora
+      header: Lora
+      body: PP Neue Montreal
+      code: PP Neue Montreal
+      fontOrigin: local
+  - source: "@quartz-community/remove-draft"
+    enabled: true
+  - source: "@quartz-community/alias-redirects"
+    enabled: true
+  - source: "@quartz-community/content-index"
+    enabled: true
+    options:
+      enableSiteMap: true
+      enableRSS: true
+  - source: "@quartz-community/favicon"
+    enabled: true
+  - source: "@quartz-community/og-image"
+    enabled: true
+  - source: "@quartz-community/content-page"
+    enabled: true
+  - source: "@quartz-community/folder-page"
+    enabled: true
+  - source: "@quartz-community/tag-page"
+    enabled: true
+  - source: "@quartz-community/explorer"
+    enabled: true
+    layout:
+      position: left
+      priority: 50
+      condition: not-index
+  - source: "@quartz-community/graph"
+    enabled: true
+    layout:
+      position: right
+      priority: 10
+      condition: not-index
+  - source: "@quartz-community/search"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 7
+      condition: not-index
+      group: note-toolbar
+      groupOptions:
+        grow: true
+  - source: "@quartz-community/backlinks"
+    enabled: true
+    layout:
+      position: right
+      priority: 50
+      condition: not-index
+  - source: "@quartz-community/article-title"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 10
+      condition: not-index
+  - source: "@quartz-community/content-meta"
+    enabled: false
+    layout:
+      position: beforeBody
+      priority: 20
+      condition: not-index
+  - source: "@quartz-community/page-title"
+    enabled: true
+    layout:
+      position: left
+      priority: 10
+      condition: not-index
+  - source: "@quartz-community/darkmode"
+    enabled: true
+    layout:
+      position: left
+      priority: 30
+  - source: "@quartz-community/breadcrumbs"
+    enabled: true
+    options:
+      rootName: home
+    layout:
+      position: beforeBody
+      priority: 5
+      condition: not-index
+  - source: "@quartz-community/comments"
+    enabled: true
+    options:
+      provider: giscus
+      options:
+        repo: d-tecnolife/site
+        repoId: R_kgDORKl06g
+        category: General
+        categoryId: DIC_kwDORKl06s4DCXRn
+        mapping: pathname
+        strict: true
+        reactionsEnabled: true
+        inputPosition: top
+        themeUrl: https://giscus.app/themes
+        lightTheme: light
+        darkTheme: dark_dimmed
+        lang: en
+    layout:
+      position: afterBody
+      priority: 10
+  - source: "@quartz-community/footer"
+    enabled: true
+    options:
+      links:
+        GitHub: https://github.com/d-tecnolife
+        LinkedIn: https://www.linkedin.com/in/russell-gallinera-09a550291/
+        Email: mailto:russellgallinera@gmail.com
+    layout:
+      position: footer
+      priority: 50
+  - source: "@quartz-community/spacer"
+    enabled: true
+    options: {}
+    order: 25
+    layout:
+      position: left
+      priority: 25
+      condition: not-index
+      display: mobile-only
+layout:
+  groups:
+    note-toolbar:
+      priority: 7
+      direction: row
+      gap: 0.5rem
+  byPageType:
+    "404":
+      positions:
+        beforeBody: []
+        left: []
+        right: []
+    content: {}
+    folder:
+      positions:
+        right: []
+    tag:
+      positions:
+        right: []
